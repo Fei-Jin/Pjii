@@ -277,6 +277,263 @@ const Services = () => {
   );
 };
 
+const JournalThemePreview = () => {
+  return (
+    <section id="demo-theme" className="py-32 bg-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-uin-green/10 text-uin-green px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <Settings size={16} />
+            <span>Kustomisasi Tema OJS 3</span>
+          </div>
+          <h2 className="section-title mb-6">Inspirasi Tema Jurnal Akademik</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">Contoh kustomisasi tampilan OJS 3 dengan gaya profesional ala Jurnal Pendidikan UIN Sunan Kalijaga.</p>
+        </div>
+
+        <div className="bg-white rounded-[40px] shadow-2xl overflow-hidden border border-slate-200">
+          {/* OJS Header Simulation */}
+          <div className="bg-white border-b-4 border-uin-green p-6 md:p-10">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-uin-green rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                  UIN
+                </div>
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-uin-green">Jurnal Pendidikan Islam</h3>
+                  <p className="text-slate-500 text-sm font-medium">p-ISSN: 1234-5678 | e-ISSN: 8765-4321</p>
+                </div>
+              </div>
+              <div className="flex gap-4 text-sm font-bold text-slate-600">
+                <span className="hover:text-uin-green cursor-pointer">BERANDA</span>
+                <span className="hover:text-uin-green cursor-pointer">ARSIP</span>
+                <span className="hover:text-uin-green cursor-pointer">TENTANG</span>
+                <span className="bg-uin-green text-white px-4 py-1 rounded-md cursor-pointer">LOGIN</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-4">
+            {/* Main Content */}
+            <div className="lg:col-span-3 p-8 md:p-12 border-r border-slate-100">
+              <div className="mb-10">
+                <h4 className="text-xl font-bold text-slate-800 border-b-2 border-uin-gold inline-block pb-1 mb-6">Volume 10, Nomor 1, Juni 2024</h4>
+                
+                <div className="space-y-10">
+                  {[
+                    {
+                      title: "Implementasi Kurikulum Merdeka dalam Pembelajaran Pendidikan Agama Islam di Madrasah Aliyah",
+                      authors: "Ahmad Fauzi, Siti Aminah",
+                      pages: "1-15"
+                    },
+                    {
+                      title: "Analisis Strategi Pembelajaran Aktif dalam Meningkatkan Motivasi Belajar Siswa pada Mata Pelajaran Fiqh",
+                      authors: "Budi Santoso, Rina Wijaya",
+                      pages: "16-30"
+                    },
+                    {
+                      title: "Peran Teknologi Informasi dalam Transformasi Pendidikan Islam di Era Digital",
+                      authors: "M. Yusuf, Linda Sari",
+                      pages: "31-45"
+                    }
+                  ].map((art, idx) => (
+                    <div key={idx} className="group cursor-pointer">
+                      <h5 className="text-lg font-serif font-bold text-uin-green group-hover:text-uin-gold transition-colors mb-2 leading-snug">
+                        {art.title}
+                      </h5>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-slate-500 italic">{art.authors}</span>
+                        <div className="flex gap-3">
+                          <span className="text-uin-gold font-bold">PDF</span>
+                          <span className="text-slate-400">Halaman {art.pages}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="bg-slate-50 p-8 space-y-8">
+              <div>
+                <h5 className="font-bold text-uin-green border-b border-slate-200 pb-2 mb-4 uppercase text-xs tracking-widest">Akreditasi</h5>
+                <div className="bg-white p-4 rounded-xl border border-slate-200 text-center">
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/id/thumb/b/b7/Logo_Sinta.png/200px-Logo_Sinta.png" 
+                    alt="SINTA" 
+                    className="h-12 mx-auto mb-2 grayscale hover:grayscale-0 transition-all"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="text-xs font-black text-slate-700">SINTA 2</div>
+                </div>
+              </div>
+
+              <div>
+                <h5 className="font-bold text-uin-green border-b border-slate-200 pb-2 mb-4 uppercase text-xs tracking-widest">Menu Utama</h5>
+                <ul className="space-y-2 text-sm font-bold text-slate-600">
+                  <li className="hover:text-uin-green flex items-center gap-2 cursor-pointer">
+                    <div className="w-1 h-1 bg-uin-gold rounded-full"></div>
+                    Submit Artikel
+                  </li>
+                  <li className="hover:text-uin-green flex items-center gap-2 cursor-pointer">
+                    <div className="w-1 h-1 bg-uin-gold rounded-full"></div>
+                    Panduan Penulis
+                  </li>
+                  <li className="hover:text-uin-green flex items-center gap-2 cursor-pointer">
+                    <div className="w-1 h-1 bg-uin-gold rounded-full"></div>
+                    Dewan Editor
+                  </li>
+                  <li className="hover:text-uin-green flex items-center gap-2 cursor-pointer">
+                    <div className="w-1 h-1 bg-uin-gold rounded-full"></div>
+                    Etika Publikasi
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h5 className="font-bold text-uin-green border-b border-slate-200 pb-2 mb-4 uppercase text-xs tracking-widest">Indeksasi</h5>
+                <div className="grid grid-cols-2 gap-2">
+                  {["DOAJ", "Google Scholar", "Copernicus", "Crossref"].map(idx => (
+                    <div key={idx} className="bg-white p-2 text-[10px] font-bold text-center border border-slate-200 rounded-md text-slate-400">
+                      {idx}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const STKIPMajenangPreview = () => {
+  return (
+    <section id="stkip-theme" className="py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-stkip-blue/10 text-stkip-blue px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <BookOpen size={16} />
+            <span>Kustomisasi Tema OJS 3 - STKIP Majenang Style</span>
+          </div>
+          <h2 className="section-title mb-6">Tampilan Jurnal Institusi</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">Desain bersih dan berwibawa yang disesuaikan dengan identitas visual STKIP Majenang.</p>
+        </div>
+
+        <div className="bg-white rounded-[40px] shadow-2xl overflow-hidden border border-slate-200">
+          {/* OJS Header Simulation */}
+          <div className="bg-stkip-blue p-6 md:p-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="flex items-center gap-4">
+                <img 
+                  src="https://stkipmajenang.ac.id/wp-content/uploads/2021/03/logo-stkip-majenang.png" 
+                  alt="STKIP Majenang" 
+                  className="h-16 w-auto bg-white p-1 rounded-lg"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="text-white">
+                  <h3 className="text-xl md:text-2xl font-bold">Jurnal Pendidikan Hatta</h3>
+                  <p className="text-stkip-yellow text-xs md:text-sm font-bold tracking-widest uppercase">STKIP Majenang - Cilacap</p>
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 text-xs font-bold text-white/80">
+                <span className="hover:text-stkip-yellow cursor-pointer">HOME</span>
+                <span className="hover:text-stkip-yellow cursor-pointer">ARCHIVES</span>
+                <span className="hover:text-stkip-yellow cursor-pointer">ANNOUNCEMENTS</span>
+                <span className="hover:text-stkip-yellow cursor-pointer">ABOUT</span>
+                <span className="bg-stkip-yellow text-stkip-blue px-4 py-1 rounded-full cursor-pointer">REGISTER</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-4">
+            {/* Sidebar Left (Common in some OJS themes) */}
+            <div className="bg-slate-50 p-8 space-y-8 border-r border-slate-100">
+              <div>
+                <h5 className="font-bold text-stkip-blue border-b-2 border-stkip-yellow pb-2 mb-4 uppercase text-xs tracking-widest">Informasi</h5>
+                <ul className="space-y-3 text-sm font-bold text-slate-600">
+                  <li className="hover:text-stkip-blue cursor-pointer">Untuk Penulis</li>
+                  <li className="hover:text-stkip-blue cursor-pointer">Untuk Reviewer</li>
+                  <li className="hover:text-stkip-blue cursor-pointer">Untuk Pustakawan</li>
+                </ul>
+              </div>
+              <div className="bg-stkip-blue/5 p-4 rounded-2xl border border-stkip-blue/10">
+                <h5 className="font-bold text-stkip-blue mb-3 text-xs uppercase">Bahasa</h5>
+                <select className="w-full bg-white border border-slate-200 rounded-lg p-2 text-xs font-bold text-slate-600">
+                  <option>Bahasa Indonesia</option>
+                  <option>English</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Main Content */}
+            <div className="lg:col-span-2 p-8 md:p-12">
+              <div className="mb-12">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="h-0.5 flex-1 bg-slate-100"></div>
+                  <h4 className="text-sm font-black text-slate-400 uppercase tracking-widest">Current Issue</h4>
+                  <div className="h-0.5 flex-1 bg-slate-100"></div>
+                </div>
+                
+                <div className="space-y-12">
+                  {[
+                    {
+                      title: "Efektivitas Model Pembelajaran Problem Based Learning terhadap Hasil Belajar Matematika Siswa Sekolah Dasar",
+                      authors: "Mulyadi, S.Pd., M.Pd.",
+                      abstract: "Penelitian ini bertujuan untuk mengetahui efektivitas model pembelajaran PBL dalam meningkatkan hasil belajar..."
+                    },
+                    {
+                      title: "Pengaruh Penggunaan Media Pembelajaran Berbasis Digital terhadap Minat Belajar Siswa di Masa Pandemi",
+                      authors: "Drs. H. Ahmad Dahlan",
+                      abstract: "Media digital menjadi kunci utama dalam proses transformasi pendidikan saat ini, penelitian ini mengeksplorasi..."
+                    }
+                  ].map((art, idx) => (
+                    <div key={idx} className="group">
+                      <h5 className="text-xl font-bold text-stkip-blue group-hover:text-primary transition-colors mb-3 leading-tight">
+                        {art.title}
+                      </h5>
+                      <p className="text-slate-500 text-sm italic mb-4">{art.authors}</p>
+                      <p className="text-slate-400 text-xs line-clamp-2 mb-6 leading-relaxed">{art.abstract}</p>
+                      <div className="flex gap-4">
+                        <button className="bg-stkip-blue text-white px-6 py-2 rounded-lg text-xs font-bold hover:bg-primary transition-all shadow-lg shadow-stkip-blue/20">PDF (IND)</button>
+                        <button className="border border-slate-200 text-slate-500 px-6 py-2 rounded-lg text-xs font-bold hover:bg-slate-50 transition-all">ABSTRACT</button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar Right */}
+            <div className="bg-slate-50 p-8 space-y-8 border-l border-slate-100">
+              <div>
+                <h5 className="font-bold text-stkip-blue border-b-2 border-stkip-yellow pb-2 mb-4 uppercase text-xs tracking-widest">Tools</h5>
+                <div className="space-y-4">
+                  <div className="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Mendeley_logo.svg/1200px-Mendeley_logo.svg.png" alt="Mendeley" className="h-6 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" referrerPolicy="no-referrer" />
+                  </div>
+                  <div className="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Turnitin_logo.svg/2560px-Turnitin_logo.svg.png" alt="Turnitin" className="h-6 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" referrerPolicy="no-referrer" />
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h5 className="font-bold text-stkip-blue border-b-2 border-stkip-yellow pb-2 mb-4 uppercase text-xs tracking-widest">Visitor Stats</h5>
+                <div className="bg-white p-4 rounded-xl border border-slate-200 text-center">
+                  <div className="text-2xl font-black text-stkip-blue">12,458</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase">Total Views</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Process = () => {
   const steps = [
     { title: "Konsultasi", desc: "Diskusi awal mengenai kebutuhan dan kendala jurnal Anda." },
@@ -630,6 +887,8 @@ export default function App() {
       <Hero />
       <Stats />
       <Services />
+      <JournalThemePreview />
+      <STKIPMajenangPreview />
       <Process />
       <Pricing />
       <Testimonials />

@@ -10,6 +10,10 @@
   --color-primary-dark: #2563eb;
   --color-whatsapp: #25d366;
   --color-accent: #64ffda;
+  --color-uin-green: #006837;
+  --color-uin-gold: #c5a059;
+  --color-stkip-blue: #004a99;
+  --color-stkip-yellow: #ffcc00;
 }
 
 @keyframes pulse-whatsapp {
