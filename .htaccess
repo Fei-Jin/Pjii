@@ -1,22 +1,33 @@
-# .htaccess untuk React SPA di Hosting PHP (hPanel/CPanel)
-# Menangani routing sisi klien agar refresh halaman tidak 404
+# .htaccess untuk Hostinger hPanel (React Vite SPA)
+# Menangani routing agar tidak 404 saat refresh
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   
-  # Jangan ubah file atau direktori yang benar-benar ada
+  # Jika file atau folder ada, langsung buka
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   
-  # Arahkan semua permintaan lainnya ke index.php
-  RewriteRule ^(.*)$ index.php [L,QSA]
+  # JANGAN arahkan file statis (js, css, dll) ke index.html jika tidak ditemukan
+  # Ini mencegah error "MIME type text/plain" yang membingungkan
+  RewriteCond %{REQUEST_URI} !.*\.(js|css|png|jpg|jpeg|gif|svg|ico|json|woff|woff2)$ [NC]
+  
+  # Arahkan semua permintaan lainnya ke index.html
+  RewriteRule . /index.html [L]
 </IfModule>
 
-# Keamanan Tambahan: Sembunyikan daftar file di folder
+# Perbaikan MIME Type untuk JavaScript Modules
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType application/javascript .mjs
+  AddType text/css .css
+</IfModule>
+
+# Keamanan: Sembunyikan daftar file
 Options -Indexes
 
-# Kompresi Gzip untuk mempercepat loading
+# Kompresi untuk kecepatan
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
