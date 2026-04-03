@@ -45,6 +45,14 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
+            <a 
+              href="https://ejournal.pjii.org" 
+              target="_blank" 
+              rel="noreferrer"
+              className={`font-semibold transition-colors ${scrolled ? "text-slate-600 hover:text-primary" : "text-white/80 hover:text-white"}`}
+            >
+              eJournal
+            </a>
             {["Beranda", "Layanan", "Harga", "Testimoni"].map((item) => (
               <a 
                 key={item}
@@ -79,6 +87,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden bg-white border-t border-gray-100 pb-6 px-4 space-y-4 shadow-2xl absolute w-full left-0"
         >
+          <a href="https://ejournal.pjii.org" target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)} className="block py-2 text-slate-700 font-bold">eJournal</a>
           {["Beranda", "Layanan", "Harga", "Testimoni"].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="block py-2 text-slate-700 font-bold">{item}</a>
           ))}
@@ -103,12 +112,12 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center"
           >
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-full text-sm font-bold text-blue-300 mb-8">
               <Zap size={16} className="fill-blue-300" />
@@ -118,10 +127,10 @@ const Hero = () => {
               Tingkatkan Reputasi <br />
               <span className="gradient-text">Jurnal Ilmiah</span> Anda
             </h1>
-            <p className="text-xl text-slate-300 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
               Solusi komprehensif untuk pengelola jurnal menuju akreditasi SINTA dan indeksasi internasional bereputasi dengan pendampingan pakar.
             </p>
-            <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <a 
                 href="https://wa.me/628975841020?text=Halo%20PJII,%20saya%20ingin%20tanya%20layanan%20jurnal" 
                 target="_blank"
@@ -135,40 +144,6 @@ const Hero = () => {
                 Lihat Layanan
               </a>
             </div>
-
-            <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
-              <div className="font-bold text-sm tracking-widest uppercase">Trusted By</div>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-8 items-center">
-                <img 
-                  src="https://stkipmajenang.ac.id/wp-content/uploads/2021/03/logo-stkip-majenang.png" 
-                  alt="STKIP Majenang" 
-                  className="h-10 w-auto"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="text-xl font-black">UNIV-A</div>
-                <div className="text-xl font-black">INST-B</div>
-                <div className="text-xl font-black">JOUR-C</div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="hidden lg:block relative"
-          >
-            <div className="relative z-10 animate-float">
-              <img 
-                src="https://illustrations.popsy.co/white/education.svg" 
-                alt="Education Illustration" 
-                className="max-h-[500px] w-auto drop-shadow-[0_35px_35px_rgba(59,130,246,0.3)]"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            {/* Decorative circles */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-white/5 rounded-full"></div>
           </motion.div>
         </div>
       </div>
@@ -179,10 +154,10 @@ const Hero = () => {
 const Stats = () => {
   const stats = [
     { label: "Artikel Terbit", value: "5000+", icon: <FileText className="w-6 h-6" /> },
-    { label: "Jurnal Terbantu", value: "150+", icon: <BookOpen className="w-6 h-6" /> },
-    { label: "Lolos SINTA", value: "85+", icon: <Award className="w-6 h-6" /> },
-    { label: "Indeksasi Internasional", value: "40+", icon: <Globe className="w-6 h-6" /> },
-    { label: "Klien Institusi", value: "60+", icon: <Users className="w-6 h-6" /> },
+    { label: "Jurnal Terbantu", value: "40+", icon: <BookOpen className="w-6 h-6" /> },
+    { label: "Lolos SINTA", value: "34+", icon: <Award className="w-6 h-6" /> },
+    { label: "Indeksasi Internasional", value: "10+", icon: <Globe className="w-6 h-6" /> },
+    { label: "Klien Institusi", value: "20+", icon: <Users className="w-6 h-6" /> },
   ];
 
   return (
@@ -823,7 +798,7 @@ const Contact = () => {
             <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center">
               <Globe size={18} className="text-primary" />
             </div>
-            <span className="font-bold">Jakarta, Indonesia</span>
+            <span className="font-bold">Bogor, Indonesia</span>
           </div>
         </div>
       </div>
