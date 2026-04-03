@@ -1,0 +1,12 @@
+# .htaccess untuk React SPA di Hosting PHP
+# Agar navigasi (URL) tetap bekerja saat halaman di-refresh
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.php [L]
+</IfModule>
