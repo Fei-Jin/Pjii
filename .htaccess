@@ -1,12 +1,22 @@
-# .htaccess untuk React SPA di Hosting PHP
-# Agar navigasi (URL) tetap bekerja saat halaman di-refresh
+# .htaccess untuk React SPA di Hosting PHP (hPanel/CPanel)
+# Menangani routing sisi klien agar refresh halaman tidak 404
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
+  
+  # Jangan ubah file atau direktori yang benar-benar ada
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.php [L]
+  
+  # Arahkan semua permintaan lainnya ke index.php
+  RewriteRule ^(.*)$ index.php [L,QSA]
+</IfModule>
+
+# Keamanan Tambahan: Sembunyikan daftar file di folder
+Options -Indexes
+
+# Kompresi Gzip untuk mempercepat loading
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
